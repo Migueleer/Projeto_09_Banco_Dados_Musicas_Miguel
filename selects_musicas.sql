@@ -46,25 +46,36 @@ LIMIT 10;
 
 
 -- 7. Quero saber quais os albuns do Michael Jackson estão na lista e quais os anos de lançamento dos albuns
+SELECT artista, album, ano_lancamento FROM musicas where artista = "Michael Jackson"
 
 -- 8. Quero ver somente as musicas de Rock da playlist
+SELECT titulo, genero FROM musicas where genero = "Rock"
 
 -- 9. quero ver somente as musicas lançadas nos anos 90
+SELECT titulo, ano_lancamento FROM musicas where ano_lancamento BETWEEN 1990 AND 1999 ORDER by ano_lancamento DESC
 
 -- 10. quero ver musicas lançadas apartir dos anos 2000
+SELECT titulo, ano_lancamento FROM musicas where ano_lancamento >= 2000 ORDER by ano_lancamento ASC
 
 -- 11. Adicione as informações a respeito da sua musica favorita.
+INSERT INTO musicas (titulo, artista, album, genero, duracao_segundos, ano_lancamento, streaming_count) VALUES
+('Carry on Wayward Son', 'Kansas', 'Leftoverture', 'Rock', 323, 1976, 132995580)
 
 -- 12 .Adicione qualquer música de Funk que o professor odeia
+INSERT INTO musicas (titulo, artista, album, genero, duracao_segundos, ano_lancamento, streaming_count) VALUES
+('Maça Verde', 'Mc Hariel', 'Avisa Que É o Funk', 'Funk',165 , 2020 ,73300000)
 
 -- 13. remova essa música que você acabou de adicionar.
+DELETE from musicas where id = 121
 
 -- 14. Conte quantas músicas a banda AC/DC tem 
+SELECT count (*) as total_musicas FROM musicas where artista = "AC/DC"
 
 -- 15. conte quantas músicas de POP tem na playlist 
+SELECT count (*) as total_musicas FROM musicas where genero = "Pop"
 
 -- 16. Ordene as musícas da mais velha para a mais nova.
-
+SELECT * FROM musicas ORDER by ano_lancamento ASC
 
 
 
